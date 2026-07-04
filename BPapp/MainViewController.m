@@ -20,14 +20,14 @@
           withField2: (NSString *) field2
           withField3: (NSString *) field3
           withField4: (NSString *) field4 {
-    // declaring table
-    char *err;
-    NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' "
-                     "TEXT PRIMARY KEY, '%@' INTEGER, '%@' INTEGER, '%@' TEXT);", tableName, field1, field2, field3, field4];
+    // declaring table (safely)
+    const char *createTable = "CREATE TABLE IF NOT EXISTS '%@' ('%@' "
+    "TEXT PRIMARY KEY, '%@' INTEGER, '%@' INTEGER, '%@' TEXT);";
+    sqlite3_stmt *stmt;
     // create table
-    if (sqlite3_exec(db, [sql UTF8String] , NULL, NULL, &err) != SQLITE_OK) {
+    if (sqlite3_prepare_v2(db, createTable, -1, &stmt, NULL ) == SQLITE_OK) {
         sqlite3_close(db);
-        NSAssert(0, @"Could not create table.");
+        NSLog(@"Could not create table: %s", sqlite3_errmsg(db));
     } else {
         NSLog(@"Table created");
     }
@@ -49,26 +49,22 @@
     }
 }
 
+
 - (IBAction)saveEntry:(id)sender {
     int systolic = [systolicText.text intValue];
     int diastolic = [diastolicText.text intValue];
     NSString *comments = commentsText.text;
     NSDate *theDate = [NSDate date];
     
-
-    NSString *appendBP = [NSString stringWithFormat:@"INSERT INTO summary('theDate', 'systolic', 'diastolic', 'comments') VALUES ('%@', '%d', '%d', '%s')", theDate, systolic, diastolic, [comments UTF8String]];
-    
-    char *err;
-    if (sqlite3_exec(db, [appendBP UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+    const char *appendBP = "INSERT INTO summary('theDate', 'systolic', 'diastolic', 'comments') VALUES (?, ?, ?, ?)";
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, appendBP, -1, &stmt, NULL ) == SQLITE_OK) {
         sqlite3_close(db);
-        NSAssert(0, @"Could not update table: %s", err);
+        NSLog(@"Could not update table: %s", sqlite3_errmsg(db));
     } else {
         NSLog(@"Table updated");
     }
-    systolicText.text = @"";
-    diastolicText.text = @"";
-    commentsText.text = @"";
-
+    
     
 }
 
