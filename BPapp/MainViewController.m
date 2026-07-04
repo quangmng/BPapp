@@ -13,7 +13,7 @@
 @end
 
 @implementation MainViewController
-@synthesize systolicText, diatolicText, commentsText; // generate "setters" & "getters" for property
+@synthesize systolicText, diastolicText, commentsText; // generate "setters" & "getters" for property
 
 - (void) createTable: (NSString *) tableName
           withField1: (NSString *) field1
@@ -49,6 +49,29 @@
     }
 }
 
+- (IBAction)saveEntry:(id)sender {
+    int systolic = [systolicText.text intValue];
+    int diastolic = [diastolicText.text intValue];
+    NSString *comments = commentsText.text;
+    NSDate *theDate = [NSDate date];
+    
+
+    NSString *appendBP = [NSString stringWithFormat:@"INSERT INTO summary('theDate', 'systolic', 'diastolic', 'comments') VALUES ('%@', '%d', '%d', '%s')", theDate, systolic, diastolic, [comments UTF8String]];
+    
+    char *err;
+    if (sqlite3_exec(db, [appendBP UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Could not update table: %s", err);
+    } else {
+        NSLog(@"Table updated");
+    }
+    systolicText.text = @"";
+    diastolicText.text = @"";
+    commentsText.text = @"";
+
+    
+}
+
 - (void)viewDidLoad
 {
     [self openDB];
@@ -77,7 +100,5 @@
     }
 }
 
-- (IBAction)saveEntry:(id)sender {
-    
-}
+
 @end

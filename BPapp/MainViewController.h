@@ -14,7 +14,7 @@
     sqlite3 *db;
 }
 @property (strong, nonatomic) IBOutlet UITextField *systolicText;
-@property (strong, nonatomic) IBOutlet UITextField *diatolicText;
+@property (strong, nonatomic) IBOutlet UITextField *diastolicText;
 @property (strong, nonatomic) IBOutlet UITextField *commentsText;
 - (IBAction)saveEntry:(id)sender;
 - (NSString *) filePath;

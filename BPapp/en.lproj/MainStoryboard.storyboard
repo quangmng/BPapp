@@ -96,7 +96,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="commentsText" destination="6hu-eG-bzD" id="LzX-q5-Iis"/>
-                        <outlet property="diatolicText" destination="WKd-ff-Xtt" id="ott-53-CCP"/>
+                        <outlet property="diastolicText" destination="WKd-ff-Xtt" id="Rxo-d9-DS9"/>
                         <outlet property="systolicText" destination="e5W-ao-qRY" id="ZCn-aZ-npt"/>
                     </connections>
                 </viewController>
@@ -138,6 +138,26 @@
             <point key="canvasLocation" x="368" y="182"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FlipsideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveEntry:"/>
+                <relationship kind="outlet" name="commentsText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="diastolicText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="systolicText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
