@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2546" systemVersion="12A248" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13F1911" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1876"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier Main View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="MainViewController" sceneMemberID="viewController">
@@ -12,32 +12,99 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="10">
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal">
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="arb-94-yrX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="View History">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="6" kind="modal" identifier="showAlternate" modalTransitionStyle="flipHorizontal" id="11"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Systolic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5W-ao-qRY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="EE6-JD-7Zu"/>
+                                    <constraint firstAttribute="height" constant="30" id="b0V-qq-F2a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Diastolic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-ff-Xtt">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Pf0-U9-aDF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-eG-bzD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="io9-uR-jhs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pw1-Cg-lyg">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveEntry:" destination="2" eventType="touchUpInside" id="UEQ-EQ-Pjn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P0-v6-C1n">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="VBI-79-vIN"/>
+                                    <constraint firstAttribute="height" constant="53" id="hBK-b0-rWC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="apl-1S-UOC"/>
-                            <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bcr-if-aDO"/>
+                            <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" constant="170" id="4Dr-bU-yi4"/>
+                            <constraint firstItem="Pw1-Cg-lyg" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="7IV-1b-GSj"/>
+                            <constraint firstItem="6hu-eG-bzD" firstAttribute="top" secondItem="9P0-v6-C1n" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9nm-Wh-cHv"/>
+                            <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="Cy1-Wr-My6"/>
+                            <constraint firstItem="6hu-eG-bzD" firstAttribute="trailing" secondItem="Pw1-Cg-lyg" secondAttribute="trailing" type="default" id="Gpp-S3-5Jr"/>
+                            <constraint firstItem="9P0-v6-C1n" firstAttribute="baseline" secondItem="WKd-ff-Xtt" secondAttribute="baseline" type="default" id="KMf-wc-iNa"/>
+                            <constraint firstItem="Pw1-Cg-lyg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="177" id="Tsd-5G-da4"/>
+                            <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="e5W-ao-qRY" secondAttribute="leading" type="default" id="dXW-XK-haS"/>
+                            <constraint firstItem="WKd-ff-Xtt" firstAttribute="bottom" secondItem="e5W-ao-qRY" secondAttribute="bottom" type="default" id="dfC-ZP-wBb"/>
+                            <constraint firstItem="10" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="ga7-IQ-TUG"/>
+                            <constraint firstItem="e5W-ao-qRY" firstAttribute="baseline" secondItem="9P0-v6-C1n" secondAttribute="baseline" type="default" id="gnD-q9-khB"/>
+                            <constraint firstItem="Pw1-Cg-lyg" firstAttribute="trailing" secondItem="10" secondAttribute="trailing" type="default" id="i4Z-fc-DU4"/>
+                            <constraint firstItem="9P0-v6-C1n" firstAttribute="top" secondItem="3" secondAttribute="top" constant="57" id="km3-0O-OQ0"/>
+                            <constraint firstItem="WKd-ff-Xtt" firstAttribute="trailing" secondItem="6hu-eG-bzD" secondAttribute="trailing" type="default" id="vxT-yR-GrF"/>
+                            <constraint firstItem="9P0-v6-C1n" firstAttribute="centerX" secondItem="6hu-eG-bzD" secondAttribute="centerX" type="default" id="x1Z-Uq-3WU"/>
+                            <constraint firstItem="e5W-ao-qRY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="69" id="yb6-aK-FhM"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="commentsText" destination="6hu-eG-bzD" id="LzX-q5-Iis"/>
+                        <outlet property="diatolicText" destination="WKd-ff-Xtt" id="ott-53-CCP"/>
+                        <outlet property="systolicText" destination="e5W-ao-qRY" id="ZCn-aZ-npt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-51" y="182"/>
         </scene>
-        <!--class Prefix:identifier Flipside View Controller-->
+        <!--Flipside View Controller-->
         <scene sceneID="9">
             <objects>
                 <viewController id="6" customClass="FlipsideViewController" sceneMemberID="viewController">
@@ -45,7 +112,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="12">
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                                 <items>
                                     <navigationItem title="Title" id="13">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="14">
@@ -64,17 +131,13 @@
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="yf5-Bx-wHg"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="368" y="182"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="IBUISceneExitPlaceholder" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IBUISceneExitPlaceholder.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

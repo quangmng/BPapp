@@ -14,8 +14,24 @@
 
 @implementation MainViewController
 
+- (NSString *) filePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains //find where file is
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"bp.sql"]; //find the file, create if doesn't exist
+}
+
+- (void)openDB {
+    if (sqlite3_open([[self filePath] UTF8String], &db) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Database Failed to Open");
+    } else {
+        NSLog(@"db opened");
+    }
+}
+
 - (void)viewDidLoad
 {
+    [self openDB];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -40,4 +56,7 @@
     }
 }
 
+- (IBAction)saveEntry:(id)sender {
+    
+}
 @end
