@@ -20,11 +20,4 @@
 - (NSString *) filePath;
 - (void) openDB; // find db in directory, create new if not exist.
 
-// field names: date, sys, dia, comments
-- (void) createTable: (NSString *) tableName
-        withField1: (NSString *) field1
-        withField2: (NSString *) field2
-        withField3: (NSString *) field3
-        withField4: (NSString *) field4;
-
 @end

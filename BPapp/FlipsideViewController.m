@@ -24,17 +24,18 @@
 
 // open db
 - (void)openDB {
-    if (sqlite3_open([[self filePath] UTF8String], &db) != SQLITE_OK) {
-        sqlite3_close(db);
-        NSAssert(0, @"Database Failed to Open");
-    } else {
+    if (sqlite3_open([[self filePath] UTF8String], &db) == SQLITE_OK) {
         NSLog(@"db opened");
+    } else {
+        //sqlite3_close(db);
+        NSAssert(0, @"Database Failed to Open: %s", sqlite3_errmsg(db));
     }
 }
 
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     entries = [[NSMutableArray alloc] init];
     [self openDB];
     const char *readDB = "SELECT * FROM summary";
@@ -42,30 +43,36 @@
     
     if (sqlite3_prepare_v2(db, readDB, -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *field1 = (char *) sqlite3_column_text(statement, 0);
+            // start from 1, id is 0
+            char *field1 = (char *) sqlite3_column_text(statement, 1);
             NSString *field1Str = [[NSString alloc]initWithUTF8String:field1];
             
-            char *field2 = (char *) sqlite3_column_text(statement, 1);
+            char *field2 = (char *) sqlite3_column_text(statement, 2);
             NSString *field2Str = [[NSString alloc]initWithUTF8String:field2];
             
-            char *field3 = (char *) sqlite3_column_text(statement, 2);
+            char *field3 = (char *) sqlite3_column_text(statement, 3);
             NSString *field3Str = [[NSString alloc]initWithUTF8String:field3];
             
-            char *field4 = (char *) sqlite3_column_text(statement, 3);
+            char *field4 = (char *) sqlite3_column_text(statement, 4);
             NSString *field4Str = [[NSString alloc]initWithUTF8String:field4];
             
-//            // shortened date (no time)
-//            NSString *shortDate = field1Str;
-//            if (field1Str.length >= 10) {
-//                shortDate = [field1Str substringToIndex:10];
-//            }
+            // shortened date (no time)
+            NSString *shortDate = field1Str;
+            if (field1Str.length >= 10) {
+                shortDate = [field1Str substringToIndex:10];
+            }
             
             // data formatting per cell
-            NSString *str = [[NSString alloc]initWithFormat:@"%@ - %@/%@ - %@", field1Str, field2Str, field3Str, field4Str];
+            NSString *str = [[NSString alloc]initWithFormat:@"%@ - %@/%@ - %@", shortDate, field2Str, field3Str, field4Str];
             [entries addObject:str ];
         }
+        sqlite3_finalize(statement);
     }
-    [super viewDidLoad];
+    NSLog(@"Entries found: %lu", (unsigned long)[entries count]);
+    NSLog(@"TableView connection: %@", self.tableView);
+    
+    [self.tableView reloadData];
+    [self.tableView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

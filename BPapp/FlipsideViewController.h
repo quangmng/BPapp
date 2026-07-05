@@ -19,6 +19,7 @@
     sqlite3 *db;
 }
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *entries;
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
