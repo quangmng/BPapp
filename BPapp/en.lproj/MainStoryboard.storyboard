@@ -34,21 +34,21 @@
                                     <constraint firstAttribute="height" constant="30" id="b0V-qq-F2a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Diastolic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-ff-Xtt">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Pf0-U9-aDF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-eG-bzD">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="io9-uR-jhs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pw1-Cg-lyg">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -72,16 +72,66 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-HX-3A2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="dph-RW-Hkl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Blood Pressure Recording" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-Z5-Anf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ZY7-gF-m48"/>
+                                    <constraint firstAttribute="width" constant="291" id="s8o-y1-4Io"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6xg-9O-UW5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LPo-oc-Qfn"/>
+                                    <constraint firstAttribute="width" constant="173" id="vOv-FK-wbH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Made by Quang - 2026">
+                                    <color key="titleColor" red="0.13440858791246066" green="0.52156865600000002" blue="0.46950801387020924" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hyperlink:" destination="2" eventType="touchUpInside" id="rWx-Lh-4fc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+<<<<<<< HEAD
+=======
+                            <constraint firstItem="6xg-9O-UW5" firstAttribute="top" secondItem="fu5-HX-3A2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Df-Sc-k9N"/>
+                            <constraint firstAttribute="bottom" secondItem="6xg-9O-UW5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="71P-H2-UPh"/>
+>>>>>>> no-stringWithFormat
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="top" secondItem="9P0-v6-C1n" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9nm-Wh-cHv"/>
+                            <constraint firstItem="10" firstAttribute="top" secondItem="Pw1-Cg-lyg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cf2-f0-aod"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="Cy1-Wr-My6"/>
+<<<<<<< HEAD
                             <constraint firstItem="10" firstAttribute="top" secondItem="Pw1-Cg-lyg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Gix-6r-lQU"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="trailing" secondItem="Pw1-Cg-lyg" secondAttribute="trailing" type="default" id="Gpp-S3-5Jr"/>
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="baseline" secondItem="WKd-ff-Xtt" secondAttribute="baseline" type="default" id="KMf-wc-iNa"/>
                             <constraint firstItem="10" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Qxz-Qw-MRW"/>
+=======
+                            <constraint firstItem="10" firstAttribute="centerX" secondItem="cHh-Z5-Anf" secondAttribute="centerX" type="default" id="Dje-bh-uyc"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="FZf-G7-1Nh"/>
+                            <constraint firstItem="6hu-eG-bzD" firstAttribute="trailing" secondItem="Pw1-Cg-lyg" secondAttribute="trailing" type="default" id="Gpp-S3-5Jr"/>
+                            <constraint firstItem="9P0-v6-C1n" firstAttribute="baseline" secondItem="WKd-ff-Xtt" secondAttribute="baseline" type="default" id="KMf-wc-iNa"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="top" secondItem="cHh-Z5-Anf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Tms-ad-g1n"/>
+>>>>>>> no-stringWithFormat
                             <constraint firstItem="Pw1-Cg-lyg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="177" id="Tsd-5G-da4"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="centerX" secondItem="cHh-Z5-Anf" secondAttribute="centerX" type="default" id="cJD-Yd-nbN"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="e5W-ao-qRY" secondAttribute="leading" type="default" id="dXW-XK-haS"/>
                             <constraint firstItem="WKd-ff-Xtt" firstAttribute="bottom" secondItem="e5W-ao-qRY" secondAttribute="bottom" type="default" id="dfC-ZP-wBb"/>
                             <constraint firstItem="10" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="ga7-IQ-TUG"/>
@@ -90,6 +140,7 @@
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="top" secondItem="3" secondAttribute="top" constant="57" id="km3-0O-OQ0"/>
                             <constraint firstItem="WKd-ff-Xtt" firstAttribute="trailing" secondItem="6hu-eG-bzD" secondAttribute="trailing" type="default" id="vxT-yR-GrF"/>
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="centerX" secondItem="6hu-eG-bzD" secondAttribute="centerX" type="default" id="x1Z-Uq-3WU"/>
+                            <constraint firstItem="6xg-9O-UW5" firstAttribute="centerX" secondItem="fu5-HX-3A2" secondAttribute="centerX" type="default" id="xKg-oG-LKg"/>
                             <constraint firstItem="e5W-ao-qRY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="69" id="yb6-aK-FhM"/>
                         </constraints>
                     </view>
@@ -111,10 +162,17 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XI4-hR-e43">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BPrecord" id="fII-o5-ipc">
+=======
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pff-30-csW">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BPrecord" id="X0n-Jq-hlj">
+>>>>>>> no-stringWithFormat
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -125,16 +183,31 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
+<<<<<<< HEAD
                                     <outlet property="dataSource" destination="6" id="6iq-xq-zaT"/>
                                     <outlet property="delegate" destination="6" id="gRR-sJ-QjR"/>
+=======
+                                    <outlet property="dataSource" destination="6" id="cE0-YU-JTw"/>
+                                    <outlet property="delegate" destination="6" id="4i8-iT-Sgc"/>
+>>>>>>> no-stringWithFormat
                                 </connections>
                             </tableView>
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                                 <items>
                                     <navigationItem title="BP History" id="13">
+<<<<<<< HEAD
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="14">
+=======
+                                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="14">
+                                            <color key="tintColor" red="0.094153151903724155" green="0.52156865600000002" blue="0.51679310058162808" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> no-stringWithFormat
                                             <connections>
                                                 <action selector="done:" destination="6" id="16"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="R70-iY-h1L">
+                                            <connections>
+                                                <action selector="toggleEditMode:" destination="6" id="wh9-Vq-2oy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -143,15 +216,29 @@
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstItem="XI4-hR-e43" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="E8H-1Q-mvG"/>
                             <constraint firstItem="XI4-hR-e43" firstAttribute="top" secondItem="12" secondAttribute="bottom" type="default" id="XxH-vU-ZfA"/>
+=======
+                            <constraint firstItem="Pff-30-csW" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="FcE-l4-Zuq"/>
+                            <constraint firstItem="Pff-30-csW" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="HAa-rl-tDw"/>
+>>>>>>> no-stringWithFormat
                             <constraint firstItem="12" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="kyL-VC-rMY"/>
                             <constraint firstItem="12" firstAttribute="top" secondItem="7" secondAttribute="top" type="default" id="oQ7-QK-1Ab"/>
+                            <constraint firstItem="Pff-30-csW" firstAttribute="top" secondItem="12" secondAttribute="bottom" type="default" id="qAf-mx-c4y"/>
+                            <constraint firstItem="Pff-30-csW" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" type="default" id="ugY-YU-uxc"/>
                             <constraint firstItem="12" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" type="default" id="yf5-Bx-wHg"/>
                             <constraint firstItem="XI4-hR-e43" firstAttribute="bottom" secondItem="7" secondAttribute="bottom" type="default" id="ymb-JF-Eea"/>
                             <constraint firstItem="XI4-hR-e43" firstAttribute="leading" secondItem="7" secondAttribute="leading" type="default" id="zEg-CX-sQh"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
+=======
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Pff-30-csW" id="LIl-I9-x1R"/>
+                    </connections>
+>>>>>>> no-stringWithFormat
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
             </objects>

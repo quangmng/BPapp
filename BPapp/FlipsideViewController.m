@@ -24,6 +24,7 @@
 
 // open db
 - (void)openDB {
+<<<<<<< HEAD
     if (sqlite3_open([[self filePath] UTF8String], &db) != SQLITE_OK) {
         sqlite3_close(db);
         NSAssert(0, @"Database Failed to Open");
@@ -31,6 +32,31 @@
         NSLog(@"db opened");
     }
 }
+=======
+    if (sqlite3_open([[self filePath] UTF8String], &db) == SQLITE_OK) {
+        NSLog(@"db opened");
+    } else {
+        //sqlite3_close(db);
+        NSAssert(0, @"Database Failed to Open: %s", sqlite3_errmsg(db));
+    }
+}
+
+- (IBAction)toggleEditMode:(UIBarButtonItem *)sender {
+    // Check if table is in edit mode
+    if (self.tableView.isEditing) {
+        // Turn edit mode OFF
+        [self.tableView setEditing:NO animated:YES];
+        sender.title = @"Edit";
+        sender.style = UIBarButtonItemStyleBordered; 
+    } else {
+        // Turn edit mode ON
+        [self.tableView setEditing:YES animated:YES];
+        sender.title = @"Done";
+        sender.style = UIBarButtonItemStyleDone;
+    }
+}
+
+>>>>>>> no-stringWithFormat
 
 - (void)viewDidLoad
 {
@@ -66,6 +92,47 @@
     }
     
     [super viewDidLoad];
+    // init the arrays
+    entries = [[NSMutableArray alloc] init];
+    self.entryIDs = [[NSMutableArray alloc] init];
+    
+    [self openDB];
+    const char *readDB = "SELECT * FROM summary";
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(db, readDB, -1, &statement, nil) == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            
+            int recordID = sqlite3_column_int(statement, 0);
+            [self.entryIDs addObject:@(recordID)]; // Save the ID as an NSNumber
+            
+            char *field1 = (char *) sqlite3_column_text(statement, 1);
+            NSString *field1Str = [[NSString alloc]initWithUTF8String:field1];
+            
+            char *field2 = (char *) sqlite3_column_text(statement, 2);
+            NSString *field2Str = [[NSString alloc]initWithUTF8String:field2];
+            
+            char *field3 = (char *) sqlite3_column_text(statement, 3);
+            NSString *field3Str = [[NSString alloc]initWithUTF8String:field3];
+            
+            char *field4 = (char *) sqlite3_column_text(statement, 4);
+            NSString *field4Str = [[NSString alloc]initWithUTF8String:field4];
+            
+            // shortened date (no time)
+            NSString *shortDate = field1Str;
+            if (field1Str.length >= 10) {
+                shortDate = [field1Str substringToIndex:10];
+            }
+            
+            // data formatting per cell
+            NSString *str = [[NSString alloc]initWithFormat:@"%@ - %@/%@ - %@", shortDate, field2Str, field3Str, field4Str];
+            [entries addObject:str ];
+        }
+        sqlite3_finalize(statement);
+    }
+    NSLog(@"Entries found: %lu", (unsigned long)[entries count]);
+
+    [self.tableView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -84,6 +151,7 @@
 
 #pragma mark - Table view data source
 
+<<<<<<< HEAD
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    // return no. of sections
 //    return 1;
@@ -95,6 +163,8 @@
 //    return myTitle;
 //}
 
+=======
+>>>>>>> no-stringWithFormat
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // return no. of entries in section
     return [entries count];
@@ -111,5 +181,35 @@
     return cell;
 }
 
+<<<<<<< HEAD
+=======
+// Edit mode - deleting entry
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Get ID of row swiped on
+        NSNumber *rowID = [self.entryIDs objectAtIndex:indexPath.row];
+        
+        // Delete record from database
+        NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM summary WHERE id = %d", [rowID intValue]];
+        
+        char *err;
+        if (sqlite3_exec(db, [deleteQuery UTF8String], NULL, NULL, &err) == SQLITE_OK) {
+            
+            // If deletion successful, remove data from arrays
+            [self.entries removeObjectAtIndex:indexPath.row];
+            [self.entryIDs removeObjectAtIndex:indexPath.row];
+            
+            // Animate cell disappearing
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+        } else {
+            NSLog(@"Failed to delete record: %s", err);
+            sqlite3_free(err);
+        }
+    }
+}
+>>>>>>> no-stringWithFormat
 
 @end
