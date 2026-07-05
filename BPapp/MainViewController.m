@@ -29,6 +29,7 @@
         sqlite3_close(db);
         NSLog(@"Could not create table: %s", sqlite3_errmsg(db));
     } else {
+        sqlite3_finalize(stmt);
         NSLog(@"Table created");
     }
 }
@@ -56,15 +57,35 @@
     NSString *comments = commentsText.text;
     NSDate *theDate = [NSDate date];
     
-    const char *appendBP = "INSERT INTO summary('theDate', 'systolic', 'diastolic', 'comments') VALUES (?, ?, ?, ?)";
+    // formatting shortDate
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [formatter stringFromDate:theDate];
+    
+    const char *appendBP = "INSERT INTO summary(theDate, systolic, diastolic, comments) VALUES (?, ?, ?, ?);";
     sqlite3_stmt *stmt;
+    
     if (sqlite3_prepare_v2(db, appendBP, -1, &stmt, NULL ) == SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"Could not update table: %s", sqlite3_errmsg(db));
     } else {
+        sqlite3_finalize(stmt);
         NSLog(@"Table updated");
     }
     
+    // binding things in order 
+    sqlite3_bind_text(stmt, 1, [dateString UTF8String], -1, SQLITE_TRANSIENT);
+    sqlite3_bind_int64(stmt, 2, systolic);
+    sqlite3_bind_int64(stmt, 3, diastolic);
+    sqlite3_bind_text(stmt, 4, [comments UTF8String], -1, SQLITE_TRANSIENT);
+    
+    // clear text after saving
+    systolicText.text = @"";
+    diastolicText.text = @"";
+    commentsText.text = @"";
+    
+    // dismiss keyboard
+    [self.view endEditing:YES];
     
 }
 
