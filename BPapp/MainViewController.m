@@ -68,7 +68,9 @@
     systolicText.text = @"";
     diastolicText.text = @"";
     commentsText.text = @"";
-
+    
+    // dismiss keyboard
+    [self.view endEditing:YES];
     
 }
 
