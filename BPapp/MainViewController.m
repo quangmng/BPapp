@@ -15,6 +15,10 @@
 @implementation MainViewController
 @synthesize systolicText, diastolicText, commentsText; // generate "setters" & "getters" for property
 
+- (IBAction)hyperlink:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/quangmng/BPapp/tree/no-stringWithFormat"]];
+}
+
 // filepath to bp's db
 - (NSString *) filePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains //find where file is

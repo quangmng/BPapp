@@ -21,11 +21,13 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *entries;
+@property (nonatomic, retain) NSMutableArray *entryIDs;
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
 - (NSString *) filePath;
 - (void) openDB;
 
 - (IBAction)done:(id)sender;
+- (IBAction)toggleEditMode:(UIBarButtonItem *)sender;
 
 @end

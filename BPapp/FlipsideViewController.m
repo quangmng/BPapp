@@ -32,18 +32,39 @@
     }
 }
 
+- (IBAction)toggleEditMode:(UIBarButtonItem *)sender {
+    // Check if table is in edit mode
+    if (self.tableView.isEditing) {
+        // Turn edit mode OFF
+        [self.tableView setEditing:NO animated:YES];
+        sender.title = @"Edit";
+        sender.style = UIBarButtonItemStyleBordered; 
+    } else {
+        // Turn edit mode ON
+        [self.tableView setEditing:YES animated:YES];
+        sender.title = @"Done";
+        sender.style = UIBarButtonItemStyleDone;
+    }
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // init the arrays
     entries = [[NSMutableArray alloc] init];
+    self.entryIDs = [[NSMutableArray alloc] init];
+    
     [self openDB];
     const char *readDB = "SELECT * FROM summary";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(db, readDB, -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            // start from 1, id is 0
+            
+            int recordID = sqlite3_column_int(statement, 0);
+            [self.entryIDs addObject:@(recordID)]; // Save the ID as an NSNumber
+            
             char *field1 = (char *) sqlite3_column_text(statement, 1);
             NSString *field1Str = [[NSString alloc]initWithUTF8String:field1];
             
@@ -69,9 +90,7 @@
         sqlite3_finalize(statement);
     }
     NSLog(@"Entries found: %lu", (unsigned long)[entries count]);
-    NSLog(@"TableView connection: %@", self.tableView);
-    
-    [self.tableView reloadData];
+
     [self.tableView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -105,6 +124,34 @@
     // Configure the cell data
     cell.textLabel.text = [self.entries objectAtIndex:indexPath.row];
     return cell;
+}
+
+// Edit mode - deleting entry
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Get ID of row swiped on
+        NSNumber *rowID = [self.entryIDs objectAtIndex:indexPath.row];
+        
+        // Delete record from database
+        NSString *deleteQuery = [NSString stringWithFormat:@"DELETE FROM summary WHERE id = %d", [rowID intValue]];
+        
+        char *err;
+        if (sqlite3_exec(db, [deleteQuery UTF8String], NULL, NULL, &err) == SQLITE_OK) {
+            
+            // If deletion successful, remove data from arrays
+            [self.entries removeObjectAtIndex:indexPath.row];
+            [self.entryIDs removeObjectAtIndex:indexPath.row];
+            
+            // Animate cell disappearing
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+        } else {
+            NSLog(@"Failed to delete record: %s", err);
+            sqlite3_free(err);
+        }
+    }
 }
 
 @end

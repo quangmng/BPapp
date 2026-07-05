@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *commentsText;
 - (IBAction)saveEntry:(id)sender;
 - (NSString *) filePath;
+- (IBAction)hyperlink:(id)sender;
 - (void) openDB; // find db in directory, create new if not exist.
 
 @end

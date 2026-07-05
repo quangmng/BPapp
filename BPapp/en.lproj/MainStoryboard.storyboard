@@ -72,16 +72,56 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-HX-3A2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="dph-RW-Hkl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Blood Pressure Recording" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-Z5-Anf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ZY7-gF-m48"/>
+                                    <constraint firstAttribute="width" constant="291" id="s8o-y1-4Io"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6xg-9O-UW5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LPo-oc-Qfn"/>
+                                    <constraint firstAttribute="width" constant="173" id="vOv-FK-wbH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Made by Quang - 2026">
+                                    <color key="titleColor" red="0.13440858791246066" green="0.52156865600000002" blue="0.46950801387020924" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hyperlink:" destination="2" eventType="touchUpInside" id="rWx-Lh-4fc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Pw1-Cg-lyg" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="7IV-1b-GSj"/>
+                            <constraint firstItem="6xg-9O-UW5" firstAttribute="top" secondItem="fu5-HX-3A2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Df-Sc-k9N"/>
+                            <constraint firstAttribute="bottom" secondItem="6xg-9O-UW5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="71P-H2-UPh"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="top" secondItem="9P0-v6-C1n" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9nm-Wh-cHv"/>
                             <constraint firstItem="10" firstAttribute="top" secondItem="Pw1-Cg-lyg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cf2-f0-aod"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="Cy1-Wr-My6"/>
+                            <constraint firstItem="10" firstAttribute="centerX" secondItem="cHh-Z5-Anf" secondAttribute="centerX" type="default" id="Dje-bh-uyc"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="FZf-G7-1Nh"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="trailing" secondItem="Pw1-Cg-lyg" secondAttribute="trailing" type="default" id="Gpp-S3-5Jr"/>
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="baseline" secondItem="WKd-ff-Xtt" secondAttribute="baseline" type="default" id="KMf-wc-iNa"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="top" secondItem="cHh-Z5-Anf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Tms-ad-g1n"/>
                             <constraint firstItem="Pw1-Cg-lyg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="177" id="Tsd-5G-da4"/>
+                            <constraint firstItem="fu5-HX-3A2" firstAttribute="centerX" secondItem="cHh-Z5-Anf" secondAttribute="centerX" type="default" id="cJD-Yd-nbN"/>
                             <constraint firstItem="6hu-eG-bzD" firstAttribute="leading" secondItem="e5W-ao-qRY" secondAttribute="leading" type="default" id="dXW-XK-haS"/>
                             <constraint firstItem="WKd-ff-Xtt" firstAttribute="bottom" secondItem="e5W-ao-qRY" secondAttribute="bottom" type="default" id="dfC-ZP-wBb"/>
                             <constraint firstItem="10" firstAttribute="leading" secondItem="Pw1-Cg-lyg" secondAttribute="leading" type="default" id="ga7-IQ-TUG"/>
@@ -90,6 +130,7 @@
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="top" secondItem="3" secondAttribute="top" constant="57" id="km3-0O-OQ0"/>
                             <constraint firstItem="WKd-ff-Xtt" firstAttribute="trailing" secondItem="6hu-eG-bzD" secondAttribute="trailing" type="default" id="vxT-yR-GrF"/>
                             <constraint firstItem="9P0-v6-C1n" firstAttribute="centerX" secondItem="6hu-eG-bzD" secondAttribute="centerX" type="default" id="x1Z-Uq-3WU"/>
+                            <constraint firstItem="6xg-9O-UW5" firstAttribute="centerX" secondItem="fu5-HX-3A2" secondAttribute="centerX" type="default" id="xKg-oG-LKg"/>
                             <constraint firstItem="e5W-ao-qRY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="69" id="yb6-aK-FhM"/>
                         </constraints>
                     </view>
@@ -133,9 +174,15 @@
                             <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                                 <items>
                                     <navigationItem title="BP History" id="13">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="14">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="14">
+                                            <color key="tintColor" red="0.094153151903724155" green="0.52156865600000002" blue="0.51679310058162808" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="done:" destination="6" id="16"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="R70-iY-h1L">
+                                            <connections>
+                                                <action selector="toggleEditMode:" destination="6" id="wh9-Vq-2oy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -163,27 +210,6 @@
             <point key="canvasLocation" x="368" y="182"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FlipsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="saveEntry:"/>
-                <relationship kind="outlet" name="commentsText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="diastolicText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="systolicText" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

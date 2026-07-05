@@ -20,6 +20,9 @@
 		A6636D092FF2BDFC00C01EC1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6636D082FF2BDFC00C01EC1 /* MainViewController.m */; };
 		A6636D0C2FF2BDFC00C01EC1 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6636D0B2FF2BDFC00C01EC1 /* FlipsideViewController.m */; };
 		A6636D132FF55D0500C01EC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A6636D122FF55D0500C01EC1 /* libsqlite3.dylib */; };
+		A6CE625A2FFA9A08002030B0 /* asu_pid.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A6CE62592FFA9A08002030B0 /* asu_pid.entitlements */; };
+		A6CE625C2FFA9C49002030B0 /* DefaultIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE625B2FFA9C49002030B0 /* DefaultIcon@2x.png */; };
+		A6CE625E2FFA9C4D002030B0 /* DefaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE625D2FFA9C4D002030B0 /* DefaultIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,10 @@
 		A6636D0A2FF2BDFC00C01EC1 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		A6636D0B2FF2BDFC00C01EC1 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		A6636D122FF55D0500C01EC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A6CE62582FFA99CA002030B0 /* BPapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BPapp.entitlements; sourceTree = "<group>"; };
+		A6CE62592FFA9A08002030B0 /* asu_pid.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = asu_pid.entitlements; sourceTree = "<group>"; };
+		A6CE625B2FFA9C49002030B0 /* DefaultIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultIcon@2x.png"; sourceTree = "<group>"; };
+		A6CE625D2FFA9C4D002030B0 /* DefaultIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,7 @@
 		A6636CE02FF2BDFC00C01EC1 = {
 			isa = PBXGroup;
 			children = (
+				A6CE625F2FFA9C69002030B0 /* assets */,
 				A6636D122FF55D0500C01EC1 /* libsqlite3.dylib */,
 				A6636CF22FF2BDFC00C01EC1 /* BPapp */,
 				A6636CEB2FF2BDFC00C01EC1 /* Frameworks */,
@@ -90,6 +98,7 @@
 		A6636CF22FF2BDFC00C01EC1 /* BPapp */ = {
 			isa = PBXGroup;
 			children = (
+				A6CE62582FFA99CA002030B0 /* BPapp.entitlements */,
 				A6636CFB2FF2BDFC00C01EC1 /* AppDelegate.h */,
 				A6636CFC2FF2BDFC00C01EC1 /* AppDelegate.m */,
 				A6636D042FF2BDFC00C01EC1 /* MainStoryboard.storyboard */,
@@ -105,6 +114,7 @@
 		A6636CF32FF2BDFC00C01EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6CE62592FFA9A08002030B0 /* asu_pid.entitlements */,
 				A6636CF42FF2BDFC00C01EC1 /* BPapp-Info.plist */,
 				A6636CF52FF2BDFC00C01EC1 /* InfoPlist.strings */,
 				A6636CF82FF2BDFC00C01EC1 /* main.m */,
@@ -114,6 +124,15 @@
 				A6636D022FF2BDFC00C01EC1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6CE625F2FFA9C69002030B0 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				A6CE625D2FFA9C4D002030B0 /* DefaultIcon.png */,
+				A6CE625B2FFA9C49002030B0 /* DefaultIcon@2x.png */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +191,9 @@
 				A6636D012FF2BDFC00C01EC1 /* Default@2x.png in Resources */,
 				A6636D032FF2BDFC00C01EC1 /* Default-568h@2x.png in Resources */,
 				A6636D062FF2BDFC00C01EC1 /* MainStoryboard.storyboard in Resources */,
+				A6CE625A2FFA9A08002030B0 /* asu_pid.entitlements in Resources */,
+				A6CE625C2FFA9C49002030B0 /* DefaultIcon@2x.png in Resources */,
+				A6CE625E2FFA9C4D002030B0 /* DefaultIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +245,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -236,8 +259,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -254,14 +279,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -270,10 +298,15 @@
 		A6636D102FF2BDFC00C01EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BPapp/asu_pid.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BPapp/BPapp-Prefix.pch";
 				INFOPLIST_FILE = "BPapp/BPapp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -282,10 +315,15 @@
 		A6636D112FF2BDFC00C01EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BPapp/asu_pid.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BPapp/BPapp-Prefix.pch";
 				INFOPLIST_FILE = "BPapp/BPapp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -310,6 +348,7 @@
 				A6636D112FF2BDFC00C01EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
