@@ -24,15 +24,6 @@
 
 // open db
 - (void)openDB {
-<<<<<<< HEAD
-    if (sqlite3_open([[self filePath] UTF8String], &db) != SQLITE_OK) {
-        sqlite3_close(db);
-        NSAssert(0, @"Database Failed to Open");
-    } else {
-        NSLog(@"db opened");
-    }
-}
-=======
     if (sqlite3_open([[self filePath] UTF8String], &db) == SQLITE_OK) {
         NSLog(@"db opened");
     } else {
@@ -56,7 +47,6 @@
     }
 }
 
->>>>>>> no-stringWithFormat
 
 - (void)viewDidLoad
 {
@@ -151,20 +141,6 @@
 
 #pragma mark - Table view data source
 
-<<<<<<< HEAD
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    // return no. of sections
-//    return 1;
-//}
-//
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    // return section title
-//    NSString *myTitle = [[NSString alloc]initWithFormat:@"BP History"];
-//    return myTitle;
-//}
-
-=======
->>>>>>> no-stringWithFormat
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // return no. of entries in section
     return [entries count];
@@ -181,8 +157,6 @@
     return cell;
 }
 
-<<<<<<< HEAD
-=======
 // Edit mode - deleting entry
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -210,6 +184,5 @@
         }
     }
 }
->>>>>>> no-stringWithFormat
 
 @end

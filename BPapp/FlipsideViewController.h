@@ -19,18 +19,12 @@
     sqlite3 *db;
 }
 
-<<<<<<< HEAD
-@property (nonatomic, retain) NSMutableArray *entries;
-@property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
-
-
-=======
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *entries;
 @property (nonatomic, retain) NSMutableArray *entryIDs;
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
->>>>>>> no-stringWithFormat
+
 - (NSString *) filePath;
 - (void) openDB;
 
