@@ -70,6 +70,12 @@
     systolicText.text = @"";
     diastolicText.text = @"";
     commentsText.text = @"";
+<<<<<<< HEAD
+    
+    // dismiss keyboard
+    [self.view endEditing:YES];
+=======
+>>>>>>> no-stringWithFormat
     
     // dismiss keyboard
     [self.view endEditing:YES];

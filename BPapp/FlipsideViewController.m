@@ -24,6 +24,15 @@
 
 // open db
 - (void)openDB {
+<<<<<<< HEAD
+    if (sqlite3_open([[self filePath] UTF8String], &db) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Database Failed to Open");
+    } else {
+        NSLog(@"db opened");
+    }
+}
+=======
     if (sqlite3_open([[self filePath] UTF8String], &db) == SQLITE_OK) {
         NSLog(@"db opened");
     } else {
@@ -47,9 +56,41 @@
     }
 }
 
+>>>>>>> no-stringWithFormat
 
 - (void)viewDidLoad
 {
+    entries = [[NSMutableArray alloc] init];
+    [self openDB];
+    NSString *readDB = [NSString stringWithFormat:@"SELECT * FROM summary"];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(db, [readDB UTF8String], -1, &statement, nil) == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            char *field1 = (char *) sqlite3_column_text(statement, 0);
+            NSString *field1Str = [[NSString alloc]initWithUTF8String:field1];
+            
+            char *field2 = (char *) sqlite3_column_text(statement, 1);
+            NSString *field2Str = [[NSString alloc]initWithUTF8String:field2];
+            
+            char *field3 = (char *) sqlite3_column_text(statement, 2);
+            NSString *field3Str = [[NSString alloc]initWithUTF8String:field3];
+            
+            char *field4 = (char *) sqlite3_column_text(statement, 3);
+            NSString *field4Str = [[NSString alloc]initWithUTF8String:field4];
+            
+            // shortened date (no time)
+            NSString *shortDate = field1Str;
+            if (field1Str.length >= 10) {
+                shortDate = [field1Str substringToIndex:10];
+            }
+            
+            // data formatting per cell
+            NSString *str = [[NSString alloc]initWithFormat:@"%@ - %@/%@ - %@", shortDate, field2Str, field3Str, field4Str];
+            [entries addObject:str ];
+        }
+    }
+    
     [super viewDidLoad];
     // init the arrays
     entries = [[NSMutableArray alloc] init];
@@ -110,6 +151,20 @@
 
 #pragma mark - Table view data source
 
+<<<<<<< HEAD
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    // return no. of sections
+//    return 1;
+//}
+//
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    // return section title
+//    NSString *myTitle = [[NSString alloc]initWithFormat:@"BP History"];
+//    return myTitle;
+//}
+
+=======
+>>>>>>> no-stringWithFormat
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // return no. of entries in section
     return [entries count];
@@ -126,6 +181,8 @@
     return cell;
 }
 
+<<<<<<< HEAD
+=======
 // Edit mode - deleting entry
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -153,5 +210,6 @@
         }
     }
 }
+>>>>>>> no-stringWithFormat
 
 @end
